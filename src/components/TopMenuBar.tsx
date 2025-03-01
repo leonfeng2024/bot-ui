@@ -1,5 +1,4 @@
 import React from 'react';
-import Image from 'next/image';
 
 const TopMenuBar = () => {
     return (
@@ -10,12 +9,10 @@ const TopMenuBar = () => {
                 </div>
             </div>
             <div className="w-10 h-10 rounded-full overflow-hidden">
-                <Image
+                <img
                     src="/user_icon.png"
                     alt="User Profile"
-                    width={40}
-                    height={40}
-                    className="object-cover"
+                    className="w-full h-full object-cover"
                 />
             </div>
         </div>
