@@ -1,5 +1,5 @@
 <template>
-  <div class="flex-1 overflow-y-auto p-4 bg-gray-50">
+  <div class="flex-1 overflow-y-auto p-4 bg-gray-50" ref="chatContainer">
     <div class="max-w-3xl mx-auto space-y-4">
       <div
         v-for="(message, index) in messages"
@@ -29,6 +29,25 @@ export default {
       type: Array,
       required: true
     }
+  },
+  watch: {
+    messages: {
+      handler() {
+        this.$nextTick(() => {
+          this.scrollToBottom();
+        });
+      },
+      deep: true
+    }
+  },
+  methods: {
+    scrollToBottom() {
+      const container = this.$refs.chatContainer;
+      container.scrollTop = container.scrollHeight;
+    }
+  },
+  mounted() {
+    this.scrollToBottom();
   }
 }
 </script> 

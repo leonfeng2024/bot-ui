@@ -12,16 +12,16 @@
 </template>
 
 <script>
-import TopMenuBar from './components/TopMenuBar.vue';
-import ChatWindow from './components/ChatWindow.vue';
-import ChatPanel from './components/ChatPanel.vue';
+import TopMenuBar from './components/TopMenuBar.vue'
+import ChatWindow from './components/ChatWindow.vue'
+import ChatPanel from './components/ChatPanel.vue'
 
 export default {
   name: 'App',
   components: {
     TopMenuBar,
     ChatWindow,
-    ChatPanel,
+    ChatPanel
   },
   data() {
     return {
@@ -30,13 +30,14 @@ export default {
     }
   },
   created() {
+    // Initial welcome message
     this.messages = [
       {
         username: 'bot',
         message: 'Hello! How can I help you today?',
         status: 'success'
       }
-    ];
+    ]
   },
   methods: {
     async handleSubmit(request) {
@@ -80,6 +81,7 @@ export default {
     },
     handleFileUpload(file) {
       console.log('File uploaded:', file.name);
+      // TODO: Implement file upload API endpoint
     }
   }
 }
