@@ -38,40 +38,39 @@
   </div>
 </template>
 
-<script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
-import { ChatRequest } from '@/types/chat';
-
-@Component
-export default class ChatPanel extends Vue {
-  message = '';
-
-  handleSubmit() {
-    if (!this.message.trim()) return;
-
-    const request: ChatRequest = {
-      username: 'user',
-      query: this.message.trim()
-    };
-
-    this.$emit('submit', request);
-    this.message = '';
-  }
-
-  handleEnterKey(e: KeyboardEvent) {
-    if (!e.shiftKey) {
-      this.handleSubmit();
+<script>
+export default {
+  name: 'ChatPanel',
+  data() {
+    return {
+      message: ''
     }
-  }
+  },
+  methods: {
+    handleSubmit() {
+      if (!this.message.trim()) return;
 
-  triggerFileUpload() {
-    (this.$refs.fileInput as HTMLInputElement).click();
-  }
+      const request = {
+        username: 'user',
+        query: this.message.trim()
+      };
 
-  handleFileChange(e: Event) {
-    const file = (e.target as HTMLInputElement).files?.[0];
-    if (file) {
-      this.$emit('file-upload', file);
+      this.$emit('submit', request);
+      this.message = '';
+    },
+    handleEnterKey(e) {
+      if (!e.shiftKey) {
+        this.handleSubmit();
+      }
+    },
+    triggerFileUpload() {
+      this.$refs.fileInput.click();
+    },
+    handleFileChange(e) {
+      const file = e.target.files?.[0];
+      if (file) {
+        this.$emit('file-upload', file);
+      }
     }
   }
 }

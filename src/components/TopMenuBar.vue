@@ -15,9 +15,8 @@
   </div>
 </template>
 
-<script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
-
-@Component
-export default class TopMenuBar extends Vue {}
+<script>
+export default {
+  name: 'TopMenuBar'
+}
 </script> 

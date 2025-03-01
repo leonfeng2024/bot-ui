@@ -21,12 +21,14 @@
   </div>
 </template>
 
-<script lang="ts">
-import { Component, Prop, Vue } from 'vue-property-decorator';
-import { ChatMessage } from '@/types/chat';
-
-@Component
-export default class ChatWindow extends Vue {
-  @Prop({ required: true }) readonly messages!: ChatMessage[];
+<script>
+export default {
+  name: 'ChatWindow',
+  props: {
+    messages: {
+      type: Array,
+      required: true
+    }
+  }
 }
 </script> 
