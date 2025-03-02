@@ -234,7 +234,7 @@ st.markdown('</div>', unsafe_allow_html=True)
 def send_message_to_api(message):
     try:
         response = requests.post(
-            "http://localhost:8000/chat",
+            "http://jptyomdmidd001.onetakeda.com/chat",
             json={"username": "user", "query": message},
             timeout=30
         )

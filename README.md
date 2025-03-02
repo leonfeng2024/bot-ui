@@ -69,7 +69,7 @@ sudo service nginx start
 
 ## API 代理
 
-所有项目中的 API 请求 `http://localhost/chat` 将被 Nginx 代理到实际的后端服务。
+所有项目中的 API 请求 `http://jptyomdmidd001.onetakeda.com` 将被 Nginx 代理到实际的后端服务。
 
 ## 构建生产版本
 

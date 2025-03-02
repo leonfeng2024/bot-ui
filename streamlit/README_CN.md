@@ -9,7 +9,7 @@
 - 聊天历史记录保存（会话期间）
 - 最新消息自动滚动到底部
 - 支持回车键发送消息
-- 与后端 API 集成 (http://localhost:8000/chat)
+- 与后端 API 集成 (http://jptyomdmidd001.onetakeda.com/chat)
 - 简单易用的安装和启动脚本
 
 ## 快速开始
@@ -72,7 +72,7 @@ streamlit/
 
 ## API 集成
 
-应用默认连接到 `http://localhost:8000/chat` API 端点。API 请求格式为:
+应用默认连接到 `http://jptyomdmidd001.onetakeda.com/chat` API 端点。API 请求格式为:
 
 ```json
 {

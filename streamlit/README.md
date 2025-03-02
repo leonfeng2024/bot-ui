@@ -38,7 +38,7 @@ streamlit run app.py
 
 ### 配置
 
-应用默认连接到 `http://localhost:8000/chat` API 端点。如果需要修改此设置，请编辑 `app.py` 文件中的 `send_message_to_api` 函数。
+应用默认连接到 `http://jptyomdmidd001.onetakeda.com/chat` API 端点。如果需要修改此设置，请编辑 `app.py` 文件中的 `send_message_to_api` 函数。
 
 ## 功能
 

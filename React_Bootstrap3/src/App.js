@@ -11,7 +11,7 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const messagesEndRef = useRef(null);
-  const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:8000/chat';
+  const apiUrl = process.env.REACT_APP_API_URL || 'http://jptyomdmidd001.onetakeda.com/chat';
   const username = process.env.REACT_APP_USERNAME || 'user';
 
   // Scroll to bottom of messages

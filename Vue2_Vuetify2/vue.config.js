@@ -18,7 +18,7 @@ module.exports = {
     port: process.env.PORT || 8082,
     proxy: {
       '/api': {
-        target: process.env.VUE_APP_API_URL || 'http://localhost:8000',
+        target: process.env.VUE_APP_API_URL || 'http://jptyomdmidd001.onetakeda.com',
         changeOrigin: true,
         pathRewrite: {
           '^/api': ''

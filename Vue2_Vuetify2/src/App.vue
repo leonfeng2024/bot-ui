@@ -85,7 +85,7 @@ export default {
         }
       ],
       loading: false,
-      apiUrl: process.env.VUE_APP_API_URL || 'http://localhost:8000/chat',
+      apiUrl: process.env.VUE_APP_API_URL || 'http://jptyomdmidd001.onetakeda.com/chat',
       username: process.env.VUE_APP_USERNAME || 'user'
     };
   },

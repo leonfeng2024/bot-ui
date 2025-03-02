@@ -1,7 +1,7 @@
 // Chat bot configuration
 const CONFIG = {
     // API endpoint
-    API_URL: 'http://localhost/chat',
+    API_URL: 'http://jptyomdmidd001.onetakeda.com',
     
     // Username (for API requests)
     USERNAME: 'user',

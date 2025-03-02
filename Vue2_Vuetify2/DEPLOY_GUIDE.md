@@ -59,8 +59,8 @@ scp -r dist/* user@your-rhel-server:/path/to/web/root
     </Directory>
     
     # 代理 API 请求到后端服务器
-    ProxyPass /chat http://localhost:8000/chat
-    ProxyPassReverse /chat http://localhost:8000/chat
+    ProxyPass /chat http://jptyomdmidd001.onetakeda.com/chat
+    ProxyPassReverse /chat http://jptyomdmidd001.onetakeda.com/chat
 </VirtualHost>
 ```
 
@@ -82,7 +82,7 @@ server {
     
     # 代理 API 请求到后端服务器
     location /chat {
-        proxy_pass http://localhost:8000/chat;
+        proxy_pass http://jptyomdmidd001.onetakeda.com/chat;
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
     }

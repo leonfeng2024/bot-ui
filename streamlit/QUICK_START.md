@@ -57,7 +57,7 @@ streamlit run app.py
 
 ### 问题: 无法连接到后端 API
 
-确保后端 API 服务正在运行，并且可以访问 `http://localhost:8000/chat`。
+确保后端 API 服务正在运行，并且可以访问 `http://jptyomdmidd001.onetakeda.com/chat`。
 
 ### 问题: 安装依赖时出错
 
