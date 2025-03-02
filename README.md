@@ -19,18 +19,7 @@
 
 ## 部署步骤
 
-### 1. 配置 hosts 文件
-
-在您的系统 hosts 文件中添加以下条目：
-
-```
-127.0.0.1 bot-ui
-```
-
-- Windows: `C:\Windows\System32\drivers\etc\hosts`
-- Linux/Mac: `/etc/hosts`
-
-### 2. 安装 Nginx
+### 1. 安装 Nginx
 
 根据您的操作系统安装 Nginx：
 
@@ -39,7 +28,7 @@
   sudo yum install nginx
   ```
 
-### 3. 配置 Nginx
+### 2. 配置 Nginx
 
 将 `nginx.conf` 文件复制到 Nginx 配置目录：
 
@@ -50,7 +39,7 @@ sudo cp nginx.conf /etc/nginx/conf.d/bot-ui.conf
 
 修改配置文件中的路径，将 `/path/to/Html_Js_Css/` 替换为实际路径。
 
-### 4. 启动服务
+### 3. 启动服务
 
 给启动脚本添加执行权限：
 
@@ -64,7 +53,7 @@ chmod +x start-services.sh
 ./start-services.sh
 ```
 
-### 5. 启动 Nginx
+### 4. 启动 Nginx
 
 ```bash
 sudo systemctl start nginx
@@ -74,13 +63,13 @@ sudo service nginx start
 
 ## 访问地址
 
-- HTML/JS/CSS 版本: http://bot-ui/v1
-- Vue2/Vuetify2 版本: http://bot-ui/v2
-- React/Bootstrap3 版本: http://bot-ui/v3
+- HTML/JS/CSS 版本: http://jptyomdmidd001.onetakeda.com/v1
+- Vue2/Vuetify2 版本: http://jptyomdmidd001.onetakeda.com/v2
+- React/Bootstrap3 版本: http://jptyomdmidd001.onetakeda.com/v3
 
 ## API 代理
 
-所有项目中的 API 请求 `http://localhost:8000/chat` 将被 Nginx 代理到实际的后端服务。
+所有项目中的 API 请求 `http://jptyomdmidd001.onetakeda.com/chat` 将被 Nginx 代理到实际的后端服务。
 
 ## 构建生产版本
 
@@ -106,7 +95,6 @@ npm run build
 
 1. **无法访问网站**:
    - 确保 Nginx 正在运行
-   - 检查 hosts 文件是否正确配置
    - 检查 Nginx 错误日志: `/var/log/nginx/error.log`
 
 2. **API 请求失败**:

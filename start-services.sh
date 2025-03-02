@@ -32,6 +32,6 @@ echo "React_Bootstrap3 服务已启动在端口 8083"
 cd ..
 
 echo "所有服务已启动！"
-echo "访问 http://bot-ui/v1 - Html_Js_Css 项目"
-echo "访问 http://bot-ui/v2 - Vue2_Vuetify2 项目"
-echo "访问 http://bot-ui/v3 - React_Bootstrap3 项目" 
+echo "访问 http://jptyomdmidd001.onetakeda.com/v1 - Html_Js_Css 项目"
+echo "访问 http://jptyomdmidd001.onetakeda.com/v2 - Vue2_Vuetify2 项目"
+echo "访问 http://jptyomdmidd001.onetakeda.com/v3 - React_Bootstrap3 项目" 
