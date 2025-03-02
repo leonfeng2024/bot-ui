@@ -1,20 +1,20 @@
-// DOM 元素
+// DOM elements
 const chatMessages = document.getElementById('chat-messages');
 const userInput = document.getElementById('user-input');
 const sendButton = document.getElementById('send-button');
 
-// 初始化
+// Initialization
 document.addEventListener('DOMContentLoaded', () => {
-    // 添加欢迎消息
+    // Add welcome message
     addMessage(CONFIG.WELCOME_MESSAGE, false);
     
-    // 聚焦输入框
+    // Focus input field
     userInput.focus();
     
-    // 监听发送按钮点击
+    // Listen for send button click
     sendButton.addEventListener('click', sendMessage);
     
-    // 监听输入框回车键
+    // Listen for Enter key in input field
     userInput.addEventListener('keydown', (e) => {
         if (e.key === 'Enter' && !e.shiftKey) {
             e.preventDefault();
@@ -23,83 +23,83 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// 发送消息
+// Send message
 async function sendMessage() {
     const message = userInput.value.trim();
     
-    // 如果消息为空，不处理
+    // Don't process if message is empty
     if (!message) return;
     
-    // 清空输入框
+    // Clear input field
     userInput.value = '';
     
-    // 添加用户消息到聊天窗口
+    // Add user message to chat window
     addMessage(message, true);
     
-    // 显示加载动画
+    // Show loading animation
     const loadingElement = showLoading();
     
     try {
-        // 禁用发送按钮
+        // Disable send button
         sendButton.disabled = true;
         
-        // 调用 API
+        // Call API
         const response = await fetchBotResponse(message);
         
-        // 移除加载动画
+        // Remove loading animation
         loadingElement.remove();
         
-        // 添加机器人回复到聊天窗口
+        // Add bot response to chat window
         addMessage(response, false);
     } catch (error) {
-        // 移除加载动画
+        // Remove loading animation
         loadingElement.remove();
         
-        // 显示错误消息
+        // Show error message
         addMessage(CONFIG.ERROR_MESSAGE, false);
         console.error('Error:', error);
     } finally {
-        // 重新启用发送按钮
+        // Re-enable send button
         sendButton.disabled = false;
         
-        // 聚焦输入框
+        // Focus input field
         userInput.focus();
     }
 }
 
-// 添加消息到聊天窗口
+// Add message to chat window
 function addMessage(text, isUser) {
-    // 创建消息元素
+    // Create message element
     const messageDiv = document.createElement('div');
     messageDiv.className = `message ${isUser ? 'user-message' : 'bot-message'}`;
     
-    // 创建消息内容
+    // Create message content
     const contentDiv = document.createElement('div');
     contentDiv.className = 'message-content';
     
-    // 创建发送者标签
+    // Create sender label
     const senderDiv = document.createElement('div');
     senderDiv.className = 'message-sender';
-    senderDiv.textContent = isUser ? '您' : 'AI 助手';
+    senderDiv.textContent = isUser ? 'You' : 'AI Assistant';
     
-    // 创建消息文本
+    // Create message text
     const textDiv = document.createElement('div');
     textDiv.className = 'message-text';
     textDiv.innerHTML = formatMessage(text);
     
-    // 组装消息
+    // Assemble message
     contentDiv.appendChild(senderDiv);
     contentDiv.appendChild(textDiv);
     messageDiv.appendChild(contentDiv);
     
-    // 添加到聊天窗口
+    // Add to chat window
     chatMessages.appendChild(messageDiv);
     
-    // 滚动到底部
+    // Scroll to bottom
     scrollToBottom();
 }
 
-// 显示加载动画
+// Show loading animation
 function showLoading() {
     const loadingDiv = document.createElement('div');
     loadingDiv.className = 'loading';
@@ -116,7 +116,7 @@ function showLoading() {
     return loadingDiv;
 }
 
-// 调用 API 获取机器人回复
+// Call API to get bot response
 async function fetchBotResponse(message) {
     try {
         const response = await fetch(CONFIG.API_URL, {
@@ -136,7 +136,7 @@ async function fetchBotResponse(message) {
         
         const data = await response.json();
         
-        // 检查响应状态
+        // Check response status
         if (data.status === 'success') {
             return data.message || CONFIG.DEFAULT_RESPONSE;
         } else {
@@ -149,17 +149,17 @@ async function fetchBotResponse(message) {
     }
 }
 
-// 格式化消息（将链接转换为可点击的链接，处理换行符）
+// Format message (convert URLs to clickable links, handle newlines)
 function formatMessage(text) {
-    // 将 URL 转换为链接
+    // Convert URLs to links
     const urlRegex = /(https?:\/\/[^\s]+)/g;
     const withLinks = text.replace(urlRegex, url => `<a href="${url}" target="_blank">${url}</a>`);
     
-    // 处理换行符
+    // Handle newlines
     return withLinks.replace(/\n/g, '<br>');
 }
 
-// 滚动到聊天窗口底部
+// Scroll to bottom of chat window
 function scrollToBottom() {
     chatMessages.scrollTop = chatMessages.scrollHeight;
 } 

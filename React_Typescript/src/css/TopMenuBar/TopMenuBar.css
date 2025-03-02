@@ -1,0 +1,40 @@
+.tmb-container {
+  width: 100%;
+  height: 10vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+  box-sizing: border-box;
+}
+
+.tmb-logo {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #000000;
+  letter-spacing: -0.5px;
+}
+
+.tmb-avatar {
+  display: flex;
+  align-items: center;
+}
+
+.tmb-avatar-circle {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  object-fit: cover;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.tmb-avatar-circle:hover {
+  transform: scale(1.05);
+}
+
+.tmb-avatar-circle:hover {
+  background-color: #d1d5db;
+}

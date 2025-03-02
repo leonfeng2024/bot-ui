@@ -1,17 +1,17 @@
-// 聊天机器人配置
+// Chat bot configuration
 const CONFIG = {
-    // API 地址
+    // API endpoint
     API_URL: 'http://localhost/chat',
     
-    // 用户名（用于API请求）
+    // Username (for API requests)
     USERNAME: 'user',
     
-    // 初始欢迎消息
-    WELCOME_MESSAGE: '您好！我是您的 AI 助手。有什么可以帮助您的吗？',
+    // Initial welcome message
+    WELCOME_MESSAGE: 'Hello! I am your AI assistant. How can I help you?',
     
-    // 错误消息
-    ERROR_MESSAGE: '抱歉，发生了错误。请稍后再试。',
+    // Error message
+    ERROR_MESSAGE: 'Sorry, an error occurred. Please try again later.',
     
-    // 默认回复（当 API 没有返回有效响应时）
-    DEFAULT_RESPONSE: '抱歉，我无法理解您的请求。'
+    // Default response (when API doesn't return a valid response)
+    DEFAULT_RESPONSE: 'Sorry, I could not understand your request.'
 }; 

@@ -15,7 +15,7 @@ interface Message {
 const ChatBot: React.FC = () => {
   const [messages, setMessages] = useState<Message[]>([
     {
-      content: '你好！我是你的AI助手，有什么我可以帮助你的吗？',
+      content: 'Hello! I am your AI assistant. How can I help you?',
       type: 'bot',
       timestamp: new Date(),
     },
@@ -61,25 +61,25 @@ const ChatBot: React.FC = () => {
       });
 
       if (!response.ok) {
-        throw new Error('API请求失败');
+        throw new Error('API request failed');
       }
 
       const data = await response.json();
       
       if (data.status === 'success') {
         const botMessage: Message = {
-          content: data.message || '抱歉，我现在无法回答。',
+          content: data.message || 'Sorry, I cannot answer right now.',
           type: 'bot',
           timestamp: new Date(),
         };
         setMessages(prev => [...prev, botMessage]);
       } else {
-        throw new Error('API响应状态错误');
+        throw new Error('API response status error');
       }
     } catch (error) {
-      console.error('API调用错误:', error);
+      console.error('API call error:', error);
       const errorMessage: Message = {
-        content: '抱歉，发生了一些错误，请稍后再试。',
+        content: 'Sorry, an error occurred. Please try again later.',
         type: 'bot',
         timestamp: new Date(),
       };
@@ -100,7 +100,7 @@ const ChatBot: React.FC = () => {
     <Layout className="chat-container">
       <Header className="chat-header">
         <div className="logo" />
-        <h1>AI 聊天助手</h1>
+        <h1>AI Chat Assistant</h1>
       </Header>
       <Content className="chat-content">
         <List
@@ -134,7 +134,7 @@ const ChatBot: React.FC = () => {
       <Footer className="chat-footer">
         <div className="input-container">
           <Input
-            placeholder="请输入消息..."
+            placeholder="Type your message..."
             value={input}
             onChange={(e) => setInput(e.target.value)}
             onKeyPress={handleKeyPress}
@@ -148,7 +148,7 @@ const ChatBot: React.FC = () => {
             size="large"
             loading={isLoading}
           >
-            发送
+            Send
           </Button>
         </div>
       </Footer>
