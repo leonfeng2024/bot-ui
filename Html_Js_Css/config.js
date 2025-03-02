@@ -1,7 +1,7 @@
 // 聊天机器人配置
 const CONFIG = {
     // API 地址
-    API_URL: 'http://jptyomdmidd001.onetakeda.com/chat',
+    API_URL: 'http://localhost/chat',
     
     // 用户名（用于API请求）
     USERNAME: 'user',

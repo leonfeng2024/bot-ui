@@ -31,7 +31,34 @@ npm start &
 echo "React_Bootstrap3 服务已启动在端口 8083"
 cd ..
 
+# 项目4: Streamlit
+echo "启动 Streamlit 项目..."
+cd streamlit
+# 激活虚拟环境
+source venv/bin/activate
+# 检查是否安装了streamlit
+if ! command -v streamlit &> /dev/null; then
+    echo "在虚拟环境中安装 Streamlit..."
+    pip install streamlit
+fi
+streamlit run app.py --server.port 8084 &
+echo "Streamlit 服务已启动在端口 8084"
+# 退出虚拟环境
+deactivate
+cd ..
+
+# 项目5: Ant_Design_X
+echo "启动 Ant_Design_X 项目..."
+cd Ant_Design_X
+# 设置端口为 8085
+export PORT=8085
+npm start &
+echo "Ant_Design_X 服务已启动在端口 8085"
+cd ..
+
 echo "所有服务已启动！"
-echo "访问 http://jptyomdmidd001.onetakeda.com/v1 - Html_Js_Css 项目"
-echo "访问 http://jptyomdmidd001.onetakeda.com/v2 - Vue2_Vuetify2 项目"
-echo "访问 http://jptyomdmidd001.onetakeda.com/v3 - React_Bootstrap3 项目" 
+echo "访问 http://localhost/v1 - Html_Js_Css 项目"
+echo "访问 http://localhost/v2 - Vue2_Vuetify2 项目"
+echo "访问 http://localhost/v3 - React_Bootstrap3 项目"
+echo "访问 http://localhost/v4 - Streamlit 项目"
+echo "访问 http://localhost/v5 - Ant_Design_X 项目" 

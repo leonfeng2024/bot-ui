@@ -63,13 +63,13 @@ sudo service nginx start
 
 ## 访问地址
 
-- HTML/JS/CSS 版本: http://jptyomdmidd001.onetakeda.com/v1
-- Vue2/Vuetify2 版本: http://jptyomdmidd001.onetakeda.com/v2
-- React/Bootstrap3 版本: http://jptyomdmidd001.onetakeda.com/v3
+- HTML/JS/CSS 版本: http://localhost/v1
+- Vue2/Vuetify2 版本: http://localhost/v2
+- React/Bootstrap3 版本: http://localhost/v3
 
 ## API 代理
 
-所有项目中的 API 请求 `http://jptyomdmidd001.onetakeda.com/chat` 将被 Nginx 代理到实际的后端服务。
+所有项目中的 API 请求 `http://localhost/chat` 将被 Nginx 代理到实际的后端服务。
 
 ## 构建生产版本
 

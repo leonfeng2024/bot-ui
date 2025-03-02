@@ -2,7 +2,7 @@
   "name": "react-bootstrap3-chatbot",
   "version": "1.0.0",
   "private": true,
-  "homepage": "http://jptyomdmidd001.onetakeda.com/v3",
+  "homepage": "http://localhost/v3",
   "dependencies": {
     "axios": "^0.21.4",
     "bootstrap": "3.4.1",
@@ -12,7 +12,7 @@
     "react-scripts": "4.0.3"
   },
   "scripts": {
-    "start": "set HOST=jptyomdmidd001.onetakeda.com && react-scripts start",
+    "start": "set HOST=localhost && react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

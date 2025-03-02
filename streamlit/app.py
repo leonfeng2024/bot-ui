@@ -7,7 +7,7 @@ import os
 
 # Theme settings
 if 'theme' not in st.session_state:
-    st.session_state.theme = 'light'  # Default light theme
+    st.session_state.theme = 'dark'  # Default light theme
 
 # Page configuration
 st.set_page_config(
