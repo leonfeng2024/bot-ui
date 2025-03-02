@@ -12,6 +12,9 @@ module.exports = {
   },
   // Configure the dev server
   devServer: {
+    allowedHosts: [
+      'jptyomdmidd001.onetakeda.com','localhost'
+    ],
     port: process.env.PORT || 8082,
     proxy: {
       '/api': {
