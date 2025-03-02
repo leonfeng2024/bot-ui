@@ -7,7 +7,7 @@ const TopMenuBar: React.FC = () => {
       <div className="tmb-logo">ChatBot</div>
       <div className="tmb-avatar">
         <img
-          src="/images/user_profile.png"
+          src="/v6/images/user_profile.png"
           alt="User Avatar"
           className="tmb-avatar-circle"
         />
