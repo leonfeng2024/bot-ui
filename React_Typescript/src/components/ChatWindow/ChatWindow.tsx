@@ -13,7 +13,9 @@ interface Message {
 const ChatWindow: React.FC = () => {
   const [messages, setMessages] = useState<Message[]>([]);
   const [inputValue, setInputValue] = useState('');
+  const [isUploading, setIsUploading] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -57,6 +59,48 @@ const ChatWindow: React.FC = () => {
     }
   };
 
+  const handleFileUpload = async (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (!file) return;
+
+    setIsUploading(true);
+    const formData = new FormData();
+    formData.append('file', file);
+
+    try {
+      const response = await fetch('http://localhost:8000/file/upload', {
+        method: 'POST',
+        body: formData,
+      });
+
+      const result = await response.json();
+      
+      const systemMessage: Message = {
+        id: Date.now().toString(),
+        content: result.status === 'success' 
+          ? `File "${file.name}" uploaded successfully` 
+          : `Failed to upload file: ${result.message}`,
+        isUser: false,
+        timestamp: new Date()
+      };
+      
+      setMessages(prevMessages => [...prevMessages, systemMessage]);
+    } catch (error) {
+      const errorMessage: Message = {
+        id: Date.now().toString(),
+        content: `Error uploading file: ${error instanceof Error ? error.message : 'Unknown error'}`,
+        isUser: false,
+        timestamp: new Date()
+      };
+      setMessages(prevMessages => [...prevMessages, errorMessage]);
+    } finally {
+      setIsUploading(false);
+      if (fileInputRef.current) {
+        fileInputRef.current.value = '';
+      }
+    }
+  };
+
   return (
     <div className="cw-container">
       <div className="cw-messages">
@@ -76,12 +120,28 @@ const ChatWindow: React.FC = () => {
             }
           }}
         />
-        <button 
-          className="cw-send-button"
-          onClick={handleSendMessage}
-        >
-          Send
-        </button>
+        <div className="cw-button-group">
+          <input
+            type="file"
+            ref={fileInputRef}
+            className="cw-file-input"
+            onChange={handleFileUpload}
+            disabled={isUploading}
+          />
+          <button 
+            className={`cw-upload-button ${isUploading ? 'uploading' : ''}`}
+            onClick={() => fileInputRef.current?.click()}
+            disabled={isUploading}
+          >
+            {isUploading ? 'Uploading...' : 'Upload'}
+          </button>
+          <button 
+            className="cw-send-button"
+            onClick={handleSendMessage}
+          >
+            Send
+          </button>
+        </div>
       </div>
     </div>
   );

@@ -10,8 +10,8 @@ interface ChatResponse {
 }
 
 export class ChatService {
-  private static readonly API_URL = 'http://jptyomdmidd001.onetakeda.com/chat';
-
+  //private static readonly API_URL = 'http://jptyomdmidd001.onetakeda.com/chat';
+  private static readonly API_URL = 'http://localhost:8000/chat';
   public static async sendMessage(query: string): Promise<ChatResponse> {
     try {
       const request: ChatRequest = {
